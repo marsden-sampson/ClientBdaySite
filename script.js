@@ -107,8 +107,11 @@ function loadBirthdays() {
                 const parts = bday.split('-');
                 if (parts.length < 3) continue; // skip bad rows
 
-                const mmdd = `${parts[1].padStart(2, '0')}-${parts[2].padStart(2, '0')}`;
-                const month = parseInt(parts[1]);
+                // Use compatible padding method for older browsers
+                const month = parts[1].length === 1 ? '0' + parts[1] : parts[1];
+                const day = parts[2].length === 1 ? '0' + parts[2] : parts[2];
+                const mmdd = `${month}-${day}`;
+                const monthNum = parseInt(parts[1]);
 
                 // Check for today
                 if (mmdd === todayMMDD) {
@@ -116,7 +119,7 @@ function loadBirthdays() {
                 }
 
                 // Collect for month view
-                if (month === currentMonth) {
+                if (monthNum === currentMonth) {
                     monthBirthdays.push({ name, day: parseInt(parts[2]) });
                 }
             }
