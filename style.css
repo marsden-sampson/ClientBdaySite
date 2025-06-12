@@ -1,0 +1,303 @@
+/* Reset some default styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    padding-top: 80px;
+    background: transparent;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Rotated background image element */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: -2%;
+    width: 120%;
+    height: 100%;
+    background-image: url('attached_assets/—Pngtree—holiday bunting hanging flag_6703223_1749613870900.png');
+    background-size: 87%;
+    background-position: top left;
+    background-repeat: no-repeat;
+    transform: rotate(8deg);
+    transform-origin: center center;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Mirrored background image element on the other side */
+body::after {
+    content: '';
+    position: fixed;
+    top: -3%;
+    right: -17.5%;
+    width: 120%;
+    height: 100%;
+    background-image: url('attached_assets/—Pngtree—holiday bunting hanging flag_6703223_1749613870900.png');
+    background-size: 87%;
+    background-position: top right;
+    background-repeat: no-repeat;
+    transform: rotate(-8deg) scaleX(-1);
+    transform-origin: center center;
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+
+.header {
+    text-align: center;
+    margin-top: 4px;
+    margin-bottom: 40px;
+    font-size: 7rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Special spacing for monthly birthdays header */
+.header h1[style*="color: rgb(0, 180, 216)"] {
+    margin-top: -20px;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    margin: 0;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    text-transform: uppercase;
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    position: relative;
+}
+
+/* Special styling for "Happy Birthday" */
+.header h1[style*="color: rgb(230, 57, 70)"] {
+    font-size: 8rem;
+    color: #e74c3c !important;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-top: -30px;
+}
+
+/* Monthly birthdays title styling */
+.header h1[style*="color: rgb(0, 180, 216)"] {
+    font-size: 6rem;
+    color: #2980b9 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#birthday-list {
+    text-align: center;
+    margin-top: 2px;
+    color: #2c3e50;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 40px;
+    margin-bottom: 60px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* Compact spacing for monthly view */
+#birthday-list:has(.monthly) {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Large font size for today's birthday names only */
+#birthday-list .birthday-name:not(.monthly) {
+    font-size: 8rem;
+    font-weight: bold;
+    color: #e74c3c;
+    margin: 10px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Georgia', serif;
+    font-style: italic;
+}
+
+/* Normal font size for monthly birthday grid */
+#birthday-list .birthday-name.monthly {
+    font-size: 2.8rem;
+    font-weight: normal;
+    color: #2c3e50;
+    margin: 2px 0;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    backdrop-filter: none;
+    box-shadow: none;
+    border: none;
+    transition: none;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+}
+
+.birthday-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    margin-top: 10px;
+    text-align: center;
+    max-width: 2200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.birthday-grid.three-columns {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 80px;
+    max-width: 2400px;
+    margin-left: -16%;
+}
+
+.birthday-grid.three-columns.many-birthdays {
+    margin-left: -11%; /* -16% + 5% = -11% */
+}
+
+.birthday-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.birthday-name {
+    margin: 8px 0;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    backdrop-filter: none;
+    box-shadow: none;
+    border: none;
+    transition: none;
+}
+
+.birthday-name:hover {
+    transform: none;
+    box-shadow: none;
+    background: none;
+}
+
+.birthday-name.monthly:hover {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Remove gradient animation */
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .header {
+        font-size: 5rem;
+        margin-top: 90px;
+    }
+
+    .header h1[style*="color: rgb(230, 57, 70)"] {
+        font-size: 6rem;
+    }
+
+    .header h1[style*="color: rgb(0, 180, 216)"] {
+        font-size: 4.4rem;
+    }
+
+    #birthday-list .birthday-name:not(.monthly) {
+        font-size: 6rem;
+    }
+
+    #birthday-list .birthday-name.monthly {
+        font-size: 2.4rem;
+    }
+
+    #birthday-list {
+        padding: 0 20px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        margin-top: 30px;
+    }
+
+    .birthday-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 15px;
+    }
+
+    .birthday-grid.three-columns {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .header {
+        font-size: 4rem;
+        margin-top: 80px;
+    }
+
+    .header h1[style*="color: rgb(230, 57, 70)"] {
+        font-size: 5rem;
+    }
+
+    .header h1[style*="color: rgb(0, 180, 216)"] {
+        font-size: 3.6rem;
+    }
+
+    #birthday-list .birthday-name:not(.monthly) {
+        font-size: 5rem;
+    }
+
+    #birthday-list .birthday-name.monthly {
+        font-size: 2.2rem;
+    }
+
+    #birthday-list {
+        margin-top: 25px;
+        padding: 0 15px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .birthday-grid {
+        margin-top: 10px;
+        gap: 15px;
+    }
+
+
+}
+
+
+
+/* Loading and error states */
+.error-message {
+    color: #e74c3c;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.no-birthdays {
+    color: #7f8c8d;
+    font-style: italic;
+    opacity: 0.8;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
