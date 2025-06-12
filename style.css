@@ -8,6 +8,10 @@ body, html {
     overflow-x: hidden;
     min-height: 100vh;
     position: relative;
+    /* Force consistent sizing across devices */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 /* Rotated background image element */
@@ -277,6 +281,84 @@ body::after {
     }
 
 
+}
+
+/* Large screen / TV optimizations */
+@media (min-width: 1200px) {
+    .header {
+        font-size: 7rem;
+    }
+
+    .header h1[style*="color: rgb(230, 57, 70)"] {
+        font-size: 8rem;
+    }
+
+    .header h1[style*="color: rgb(0, 180, 216)"] {
+        font-size: 6rem;
+    }
+
+    #birthday-list .birthday-name:not(.monthly) {
+        font-size: 8rem;
+    }
+
+    #birthday-list .birthday-name.monthly {
+        font-size: 2.8rem;
+    }
+
+    .birthday-grid {
+        max-width: 2200px;
+    }
+
+    .birthday-grid.three-columns {
+        max-width: 2400px;
+        margin-left: -16%;
+    }
+
+    .birthday-grid.three-columns.many-birthdays {
+        margin-left: -11%;
+    }
+}
+
+/* Extra large screens (4K TVs, etc.) */
+@media (min-width: 1920px) {
+    .header {
+        font-size: 8rem;
+    }
+
+    .header h1[style*="color: rgb(230, 57, 70)"] {
+        font-size: 9rem;
+    }
+
+    .header h1[style*="color: rgb(0, 180, 216)"] {
+        font-size: 7rem;
+    }
+
+    #birthday-list .birthday-name:not(.monthly) {
+        font-size: 9rem;
+    }
+
+    #birthday-list .birthday-name.monthly {
+        font-size: 3.2rem;
+    }
+
+    .birthday-grid {
+        gap: 140px;
+        max-width: 2600px;
+    }
+
+    .birthday-grid.three-columns {
+        gap: 100px;
+        max-width: 2800px;
+    }
+}
+
+/* Force consistent viewport behavior */
+@media (orientation: landscape) and (min-width: 1024px) {
+    body {
+        zoom: 1;
+        transform: scale(1);
+        transform-origin: 0 0;
+    }
 }
 
 
